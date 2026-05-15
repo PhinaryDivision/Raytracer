@@ -1,0 +1,9 @@
+#include "vec3.hpp"
+#include "ray.hpp"
+
+const point3& ray::origin() const { return orig; }
+const vec3& ray::direction() const { return dir; }
+
+point3 ray::at(double t) const {
+    return orig + dir * t;
+}

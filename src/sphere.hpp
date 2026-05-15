@@ -10,13 +10,15 @@
 #include <memory>
 
 struct sphere : public hittable {
+    public:
+    sphere(const point3& static_center, double radius, std::shared_ptr<material> mat);
+    sphere(const point3& center1, const point3& center2, double radius, std::shared_ptr<material> mat);
+    bool hit(const ray& r, interval ray_t, hit_record& rec) const override;
 
-    point3 center;
+    private:
+    ray center;
     double radius;
     std::shared_ptr<material> mat;
-
-    sphere(const point3& center, double radius, std::shared_ptr<material> mat);
-    bool hit(const ray& r, interval ray_t, hit_record& rec) const override;
 };
 
 #endif

@@ -3,17 +3,23 @@
 
 #include "vec3.hpp"
 
-struct ray {
-    point3 orig;
-    vec3 dir;
-
-    ray() = default;
-    ray(const point3& origin, const vec3& direction) : orig(origin), dir(direction) {}
+class ray {
+    public:
+    ray();
+    ray(const point3& origin, const vec3& direction);
+    ray(const point3& origin, const vec3& direction, double time);
 
     const point3& origin() const;
     const vec3& direction() const;
 
+    double time() const;
+
     point3 at(double t) const;
+
+    private:
+    point3 orig;
+    vec3 dir;
+    double tm;
 };
 
 #endif

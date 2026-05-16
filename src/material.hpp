@@ -3,6 +3,9 @@
 
 #include "hittable.hpp"
 #include "color.hpp"
+#include "texture.hpp"
+
+#include <memory>
 
 struct material {
     virtual ~material() = default;
@@ -15,10 +18,11 @@ struct material {
 class lambertian : public material {
     public:
     lambertian(const color& albedo);
+    lambertian(std::shared_ptr<texture> tex);
     bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override;
 
     private:
-    color albedo;
+    std::shared_ptr<texture> tex;
 };
 
 class metal : public material {

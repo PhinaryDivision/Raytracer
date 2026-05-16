@@ -1,6 +1,10 @@
 #include "material.hpp"
 
-lambertian::lambertian(const color& albedo) : albedo(albedo) {}
+lambertian::lambertian(const color& albedo)
+    : tex(std::make_shared<solid_color>(albedo)) {}
+
+lambertian::lambertian(std::shared_ptr<texture> tex)
+    : tex(tex) {}
 
 bool lambertian::scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const {
     auto scatter_direction = rec.normal + random_unit_vector();
@@ -10,7 +14,7 @@ bool lambertian::scatter(const ray& r_in, const hit_record& rec, color& attenuat
     }
 
     scattered = ray(rec.p, scatter_direction, r_in.time());
-    attenuation = albedo;
+    attenuation = tex->value(rec.u, rec.v, rec.p);
     return true;
 }
 

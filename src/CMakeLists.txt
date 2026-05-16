@@ -8,7 +8,9 @@ set(SOURCES
     hittable_list.cpp
     interval.cpp
     camera.cpp
-    material.cpp)
+    material.cpp
+    aabb.cpp
+    bvh.cpp)
 
 target_sources(raytracer PRIVATE ${SOURCES})
 target_compile_features(raytracer PRIVATE cxx_std_20)

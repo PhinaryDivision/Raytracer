@@ -15,5 +15,6 @@
 #include "hittable_list.hpp"
 #include "sphere.hpp"
 #include "camera.hpp"
+#include "bvh.hpp"
 
 #endif

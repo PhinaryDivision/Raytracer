@@ -17,6 +17,8 @@ struct sphere : public hittable {
     aabb bounding_box() const override;
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override;
 
+    static void get_sphere_uv(const point3& p, double& u, double& v);
+
     private:
     ray center;
     double radius;

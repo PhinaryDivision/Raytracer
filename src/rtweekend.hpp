@@ -16,5 +16,6 @@
 #include "sphere.hpp"
 #include "camera.hpp"
 #include "bvh.hpp"
+#include "texture.hpp"
 
 #endif

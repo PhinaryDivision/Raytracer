@@ -3,6 +3,7 @@
 #include "color.hpp"
 #include "rtw_stb_image.hpp"
 #include "interval.hpp"
+#include "perlin.hpp"
 
 #include <memory>
 #include <cmath>
@@ -47,4 +48,11 @@ color image_texture::value(double u, double v, const point3& p) const {
 
     auto color_scale = 1.0 / 255.0;
     return color(color_scale*pixel[0], color_scale*pixel[1], color_scale*pixel[2]);
+}
+
+noise_texture::noise_texture(double scale) : scale(scale) {}
+
+color noise_texture::value(double u, double v, const point3& p) const {
+    // return color(1, 1, 1) * noise.turb(p, 7);
+    return color(0.5, 0.5, 0.5)  * (1 + std::sin(scale * p.z() + 10 * noise.turb(p, 7)));
 }

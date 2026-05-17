@@ -3,7 +3,9 @@
 This project is following the "Raytracing In One Weekend" book series. I am following fairly closely, but will be implementing my own features when I get bored.
 
 ### list of TODO:
-- Finish the books
+- ~~Finish book 1~~
+- Finish book 2
+- Finish book 3
 - Multiprocessing
 - SIMD (because it's cool)
 - GPU? I don't know, haven't done GPU programming yet
@@ -16,5 +18,5 @@ Much of the code in this project is taken directly from the series "Raytracing I
 ### Links
 - Raytracing In One Weekend:
     https://raytracing.github.io/
-- stb
+- stb:
     https://github.com/nothings/stb/tree/master

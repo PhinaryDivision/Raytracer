@@ -12,7 +12,8 @@ set(SOURCES
     aabb.cpp
     bvh.cpp
     texture.cpp
-    rtw_stb_image.cpp)
+    rtw_stb_image.cpp
+    perlin.cpp)
 
 target_sources(raytracer PRIVATE ${SOURCES})
 target_compile_features(raytracer PRIVATE cxx_std_20)

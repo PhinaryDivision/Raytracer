@@ -4,6 +4,7 @@
 #include "vec3.hpp"
 #include "color.hpp"
 #include "rtw_stb_image.hpp"
+#include "perlin.hpp"
 
 #include <memory>
 
@@ -43,6 +44,16 @@ class image_texture : public texture {
 
     private:
     rtw_image image;
+};
+
+class noise_texture : public texture {
+    public:
+    noise_texture(double scale);
+    color value(double u, double v, const point3& p) const override;
+
+    private:
+    perlin noise;
+    double scale;
 };
 
 #endif
